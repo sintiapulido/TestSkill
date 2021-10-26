@@ -20,6 +20,8 @@ from mycroft import MycroftSkill, intent_handler
 import serial
 import time
 import subprocess
+        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        ser.flush()
 
 class notWorldSkill(MycroftSkill):
     
@@ -31,8 +33,6 @@ class notWorldSkill(MycroftSkill):
         """
         super().__init__()
         self.learning = True
-        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        ser.flush()
 
     def initialize(self):
         """ Perform any final setup needed for the skill here.
