@@ -23,10 +23,6 @@ import subprocess
 
 class notWorldSkill(MycroftSkill):
     
-    if __name__ == '__main__':
-    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-    ser.flush()
-    while True:
     
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
@@ -46,7 +42,6 @@ class notWorldSkill(MycroftSkill):
     @intent_handler(IntentBuilder('ThankYouIntent').require('ThankYouKeyword'))
     def handle_thank_you_intent(self, message):
         """ This is an Adapt intent handler, it is triggered by a keyword."""
-        ser.write(b"Ass\n")
         self.speak_dialog("welcome")
         
 
@@ -54,7 +49,6 @@ class notWorldSkill(MycroftSkill):
     def handle_not_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
-        ser.write(b"Ass\n")
         self.speak_dialog("not.are.you")
         
 
@@ -65,7 +59,6 @@ class notWorldSkill(MycroftSkill):
         the skills.log file."""
         self.log.info("There are five types of log messages: "
                       "info, debug, warning, error, and exception.")
-        ser.write(b"Ass\n")
         self.speak_dialog("hello.world")
         
 
