@@ -17,8 +17,17 @@
 
 from adapt.intent import IntentBuilder
 from mycroft import MycroftSkill, intent_handler
+import serial
+import time
+import subprocess
 
 class HelloWorldSkill(MycroftSkill):
+    
+    if __name__ == '__main__':
+    ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+    ser.flush()
+    while True:
+    
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
         It is often used to declare variables or perform setup actions, however
@@ -38,12 +47,14 @@ class HelloWorldSkill(MycroftSkill):
     def handle_thank_you_intent(self, message):
         """ This is an Adapt intent handler, it is triggered by a keyword."""
         self.speak_dialog("welcome")
+        ser.write(b"Ass\n")
 
     @intent_handler('HowAreYou.intent')
     def handle_how_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
         self.speak_dialog("how.are.you")
+        ser.write(b"Ass\n")
 
     @intent_handler(IntentBuilder('HelloWorldIntent')
                     .require('HelloWorldKeyword'))
@@ -53,6 +64,7 @@ class HelloWorldSkill(MycroftSkill):
         self.log.info("There are five types of log messages: "
                       "info, debug, warning, error, and exception.")
         self.speak_dialog("hello.world")
+        ser.write(b"Ass\n")
 
     def stop(self):
         pass
