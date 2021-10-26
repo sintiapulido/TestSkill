@@ -19,6 +19,13 @@ class GoKnightsSkill(MycroftSkill):
         ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
         ser.flush()
         ser.write(b"charge")
+        
+    @intent_handler('greeting.intent')
+    def handle_not_are_you_intent(self, message):
+        self.speak_dialog("greeting")
+        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+        ser.flush()
+        ser.write(b"wave")
 
     def stop(self):
         pass
