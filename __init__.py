@@ -28,6 +28,7 @@ class notWorldSkill(MycroftSkill):
         It is often used to declare variables or perform setup actions, however
         it cannot utilise MycroftSkill methods as the class does not yet exist.
         """
+            
         super().__init__()
         self.learning = True
 
@@ -48,7 +49,11 @@ class notWorldSkill(MycroftSkill):
     def handle_not_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
-        self.speak_dialog("not.are.you")
+        if __name__ == '__main__':
+            ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
+            ser.flush()
+            while True:
+            self.speak_dialog("not.are.you")
         
 
     @intent_handler(IntentBuilder('HelloWorldIntent')
