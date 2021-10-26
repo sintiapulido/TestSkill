@@ -21,7 +21,7 @@ import serial
 import time
 import subprocess
 
-class HelloWorldSkill(MycroftSkill):
+class notWorldSkill(MycroftSkill):
     
     if __name__ == '__main__':
     ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
@@ -50,12 +50,12 @@ class HelloWorldSkill(MycroftSkill):
         self.speak_dialog("welcome")
         
 
-    @intent_handler('HowAreYou.intent')
+    @intent_handler('notAreYou.intent')
     def handle_how_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
         ser.write(b"Ass\n")
-        self.speak_dialog("how.are.you")
+        self.speak_dialog("not.are.you")
         
 
     @intent_handler(IntentBuilder('HelloWorldIntent')
@@ -74,4 +74,4 @@ class HelloWorldSkill(MycroftSkill):
 
 
 def create_skill():
-    return HelloWorldSkill()
+    return notWorldSkill()
