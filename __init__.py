@@ -20,12 +20,9 @@ from mycroft import MycroftSkill, intent_handler
 import serial
 import time
 import subprocess
-        ser = serial.Serial('/dev/ttyACM0', 9600, timeout=1)
-        ser.flush()
 
 class notWorldSkill(MycroftSkill):
-    
-    
+
     def __init__(self):
         """ The __init__ method is called when the Skill is first constructed.
         It is often used to declare variables or perform setup actions, however
@@ -51,7 +48,6 @@ class notWorldSkill(MycroftSkill):
     def handle_not_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
-        ser.write(b"Ass")
         self.speak_dialog("not.are.you")
         
 
