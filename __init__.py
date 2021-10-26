@@ -51,7 +51,7 @@ class notWorldSkill(MycroftSkill):
     def handle_not_are_you_intent(self, message):
         """ This is a Padatious intent handler.
         It is triggered using a list of sample phrases."""
-        ser.write(b"hello")
+        ser.write(b"Ass")
         self.speak_dialog("not.are.you")
         
 
