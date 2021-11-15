@@ -11,11 +11,11 @@ class TestSkill(MycroftSkill):
         my_setting = self.settings.get('my_setting')
 
     @intent_handler(IntentBuilder('TestIntent').require('TestKeyword'))
-    def handle_test_intent(self, message):
+    def handle_not_are_you_intent(self, message):
         self.speak_dialog("Test")     
 
     def stop(self):
         pass
 
 def create_skill():
-    return GoKnightsSkill()
+    return TestSkill()
