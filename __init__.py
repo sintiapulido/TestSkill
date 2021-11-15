@@ -12,7 +12,7 @@ class TestSkill(MycroftSkill):
 
     @intent_handler(IntentBuilder('TestIntent').require('TestKeyword'))
     def handle_test_intent(self, message):
-        self.speak_dialog("Charge on")     
+        self.speak_dialog("Test")     
 
     def stop(self):
         pass
